@@ -1,74 +1,78 @@
-    /* --- Estilos generales --- */
-    * {
+/* --- Estilos generales --- */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    }
+}
 
-    body {
-    background-color: #0f0f0f;
+body {
+    background-color: #18181B;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     font-family: 'Poppins', sans-serif;
-    }
+}
 
-    /* --- Marco del teléfono (iPhone 14 Pro Max) --- */
-    .marco-telefono {
+/* --- Marco del teléfono (iPhone 14 Pro Max) --- */
+.marco-telefono {
     width: 430px;
     height: 932px;
-    background: #000;
+    background-color: #18181B;
     border-radius: 40px;
     overflow: hidden;
     box-shadow: 0 0 30px rgba(0,0,0,0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    }
+}
 
-    .contenedor {
+.contenedor {
     width: 100%;
     height: 100%;
     position: relative;
     overflow: hidden;
-    }
+}
 
-    /* --- Encabezado con películas destacadas --- */
-    .peliculas {
+/* --- Encabezado con películas destacadas --- */
+.peliculas {
     width: 100%;
     height: 93%;
-    }
+    position: absolute;
+}
 
-    .pelicula {
+.pelicula {
     width: 100%;
-    height: 31%;
+    height: 33.3333%;
     background-size: cover;
     background-position: center;
     opacity: 0;
     transform: translateY(100px);
     animation: subir 1s forwards;
-    }
+}
 
-    .pelicula1 {
-    background-image: url('https://wallpapers.com/images/featured/morbius-4k-dqsmogd2z58h7t6d.jpg');
+.pelicula1 {
     animation-delay: 0.3s;
-    }
+    position: relative;
+    top: 80px;
+}
 
-    .pelicula2 {
-    background-image: url('https://wallpapercave.com/wp/wp6676370.jpg');
+.pelicula2 {
     animation-delay: 0.6s;
-    }
+    position: relative;
+    top: -84px;
+}
 
-    .pelicula3 {
-    background-image: url('https://wallpaperaccess.com/full/2637581.jpg');
+.pelicula3 {
     animation-delay: 0.9s;
-    }
+    position: relative;
+    top: -246px;
+}
 
-    /* --- Contenido inferior --- */
-    .contenido {
+/* --- Contenido inferior --- */
+.contenido {
     position: absolute;
-    bottom: 60px;
+    bottom: 160px;
     width: 100%;
     text-align: center;
     color: #fff;
@@ -76,49 +80,44 @@
     transform: translateY(100px);
     animation: subir 1s forwards;
     animation-delay: 1.2s;
-    }
+}
 
-    .logo {
+.logo {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    }
+}
 
-    .logo img {
-    width: 30px;
-    }
+.logo img {
+    width: 182px;
+}
 
-    .logo h1 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    }
-
-    .descripcion {
-    font-size: 0.95rem;
+.descripcion {
+    font-size: 15.2px; /* 0.95rem → 15.2px */
     color: #ccc;
     margin: 15px 0 25px;
     line-height: 1.4;
-    }
+}
 
-    /* --- Botón de acción --- */
-    .boton {
+/* --- Botón de acción --- */
+.boton {
     display: inline-block;
-    background: linear-gradient(90deg, #1db8ff, #9c5bff);
+    background: linear-gradient(90deg, #1D9BBB, #7A4493);
     color: #fff;
     text-decoration: none;
     font-weight: 600;
     padding: 12px 25px;
     border-radius: 25px;
     transition: transform 0.3s;
-    }
+}
 
-    .boton:hover {
+.boton:hover {
     transform: scale(1.05);
-    }
+}
 
-    /* --- Animación de entrada desde abajo --- */
-    @keyframes subir {
+/* --- Animación de entrada desde abajo --- */
+@keyframes subir {
     0% {
         opacity: 0;
         transform: translateY(100px);
@@ -127,4 +126,4 @@
         opacity: 1;
         transform: translateY(0);
     }
-    }
+}
