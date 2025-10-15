@@ -1,0 +1,373 @@
+/* assets/css/dashboard.css
+   CSS sencillo y convencional para Dashboard dentro de .marco-telefono
+   Mobile-first, pensado para 430 x 932 (iPhone 14 Pro Max)
+*/
+
+/* --- Reset minimal --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: #0f0f0f; /* color entorno */
+}
+
+/* --- Marco teléfono (centra la vista) --- */
+.marco-telefono {
+  width: 430px;
+  height: 932px;
+  background: #000;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.contenedor {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #000; /* fondo de la app */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- HEADER (fijo arriba) --- */
+.header {
+  width: 100%;
+  height: 110px;
+  padding: 10px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+  border-bottom: 1px solid #eee;
+  flex: 0 0 110px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.header-body {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 6px;
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  object-fit: cover;
+  background: #ddd;
+}
+
+.welcome-text {
+  font-size: 13px;
+  color: #8a8f95;
+}
+.user-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+}
+
+/* --- BARRA DE BÚSQUEDA (debajo del header) --- */
+.search-section {
+  position: relative;
+  padding: 10px 18px;
+  background: transparent;
+  flex: 0 0 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-box {
+  width: 100%;
+  max-width: 394px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: #f2f3f5;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  font-size: 15px;
+  color: #222;
+}
+
+/* --- MAIN: contenedor con scroll independiente --- */
+.main {
+  /* espacio entre search y footer; ocupará lo que quede */
+  flex: 1 1 auto;
+  display: block;
+  position: relative;
+}
+
+.movies-scroll {
+  height: calc(100% - 0px); /* llenará flex container */
+  overflow-y: auto;
+  padding: 16px 18px 20px 18px;
+  -webkit-overflow-scrolling: touch;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  align-content: start;
+  background: transparent;
+}
+
+/* --- Tarjeta simple de película --- */
+.movie-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.1);
+}
+
+.movie-poster {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  background: #ddd;
+}
+
+.movie-meta {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.movie-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.movie-year {
+  font-size: 12px;
+  color: #8a8f95;
+  white-space: nowrap;
+}
+
+/* --- FOOTER fijo (categorías) --- */
+.footer {
+  width: 100%;
+  height: 72px;
+  background: linear-gradient(0deg, #ffffff 0%, #fbfbfb 100%);
+  border-top: 1px solid #eee;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 72px;
+}
+
+.categories {
+  width: 100%;
+  max-width: 394px;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.category-btn {
+  flex: 1;
+  padding: 10px 8px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #f0f2f4;
+  font-weight: 600;
+  font-size: 14px;
+  color: #111;
+  cursor: pointer;
+}
+
+.category-btn.active {
+  background: #ff6b6b;
+  color: #fff;
+  border: none;
+}
+
+/* --- MODAL (pantalla completa, sube desde abajo) --- */
+.modal {
+  position: absolute; /* dentro del .contenedor */
+  inset: 0;
+  display: none; /* oculto por defecto */
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(0,0,0,0.45);
+  z-index: 50;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-inner {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  transform: translateY(100%);
+  transition: transform 0.32s ease;
+  overflow-y: auto;
+}
+
+.modal.show .modal-inner {
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  padding: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 60;
+}
+
+/* modal content */
+.modal-poster {
+  width: 100%;
+  height: 46vh;
+  background: #ddd;
+  overflow: hidden;
+}
+.modal-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.modal-info {
+  padding: 14px;
+}
+.modal-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.modal-cat-year {
+  color: #8a8f95;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.modal-description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  margin-bottom: 12px;
+}
+.watch-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #1db8ff, #9c5bff);
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* --- SIDE MENU derecho (slide in) --- */
+.side-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 86%;
+  max-width: 320px;
+  height: 100%;
+  background: #fff;
+  transform: translateX(100%);
+  transition: transform .28s ease;
+  z-index: 60;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.12);
+}
+
+.side-menu.show {
+  transform: translateX(0);
+}
+
+.side-menu-inner {
+  padding: 16px;
+}
+.side-close {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+.side-links {
+  margin-top: 12px;
+  list-style: none;
+}
+.side-link {
+  display: block;
+  padding: 12px 10px;
+  text-decoration: none;
+  color: #111;
+  border-radius: 10px;
+  margin-bottom: 6px;
+}
+
+/* --- Animaciones simples de entrada (subir) --- */
+@keyframes subir {
+  0% { opacity: 0; transform: translateY(60px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* pequeñas utilidades */
+.hidden { display: none !important; }
+
+/* --- Ajustes para desktop pequeño --- */
+@media (min-width: 740px) {
+  .marco-telefono { transform: scale(1.05); }
+  .movies-scroll { grid-template-columns: repeat(3, 1fr); }
+}
