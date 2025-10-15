@@ -13,15 +13,9 @@
         <div class="contenedor">
             <header class="header" role="banner" aria-label="Cabecera">
                 <div class="header-top">
-                    <!-- iconos de sistema (opcional) -->
                     <div class="system-icons" aria-hidden="true">
-                        <span class="time">9:41</span>
+                        <!-- <span class="time">9:41</span> -->
                     </div>
-
-                    <button id="menu-btn" class="icon-btn menu-btn" aria-label="Abrir menú">
-                        <!-- icono hamburguesa -->
-                        <span class="hamburger">☰</span>
-                    </button>
                 </div>
 
                 <div class="header-body">
@@ -32,18 +26,23 @@
                         <span class="welcome-text">Bienvenida</span>
                         <h1 class="user-name">Isabella</h1>
                     </div>
+                    <button id="menu-btn" class="icon-btn menu-btn" aria-label="Abrir menú">
+                        <!-- icono hamburguesa -->
+                        <span class="hamburger"><img src="assets/img/menu.png" alt="Foto Menu"></span>
+                    </button>
                 </div>
             </header>
 
             <!-- ============================ BARRA DE BÚSQUEDA ============================ -->
 
             <div class="search-section" role="search" aria-label="Buscar películas">
-                <label for="search-input" class="sr-only">Encuentra tu película favorita</label>
+                <h3 class="search-title">Encuentra tu película favorita</h3>
+
                 <div class="search-box">
                     <input id="search-input" class="search-input" type="search"
-                        placeholder="Encuentra tu película favorita" autocomplete="off" />
+                        placeholder="Buscar..." autocomplete="off" />
                     <button id="search-btn" class="icon-btn search-btn" aria-label="Buscar">
-                        🔍
+                        <img src="assets/img/search.png" alt="Foto Buscador">
                     </button>
                 </div>
             </div>
@@ -64,7 +63,6 @@
 
             <footer class="footer" role="contentinfo" aria-label="Categorías">
                 <nav class="categories" aria-label="Filtrar por categorías">
-                    <button class="category-btn" data-category="all">Todos</button>
                     <button class="category-btn" data-category="accion">Acción</button>
                     <button class="category-btn" data-category="romance">Romance</button>
                     <button class="category-btn" data-category="terror">Terror</button>
