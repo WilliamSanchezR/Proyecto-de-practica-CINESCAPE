@@ -1,14 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOGIN</title>
+    <title>CINESCAPE - Iniciar sesión</title>
+    <link rel="stylesheet" href="assets/css/stylesLogin.css">
 </head>
 
 <body>
 
-</body>
+    <div class="marco-telefono">
+        <main class="login-container">
+            <article class="login-header" aria-hidden="false">
+                <img class="logo" src="assets/img/LOGO.png" alt="Logo de Cinescape">
+                <p class="welcome">¡Nos alegra verte de nuevo!<br>Ingresa Usuario y Clave para continuar</p>
+            </article>
 
+            <form id="form-login" class="login-form" aria-label="Formulario de inicio de sesión" novalidate>
+                <label for="email" class="label">Email</label>
+                <input id="email" name="email" type="email" class="input" placeholder="Ej: tuemail@gmail.com" required
+                    autocomplete="email" />
+
+                <label for="password" class="label">Clave</label>
+                <input id="password" name="password" type="password" class="input" placeholder="********" required
+                    autocomplete="current-password" />
+
+                    <button type="submit" class="btn-ingresar" aria-label="Ingresar a Cinescape">INGRESAR</button>
+            </form>
+
+            <p id="error-msg" class="error-msg" role="alert" aria-hidden="true"></p>
+
+        </main>
+    </div>
+    <script src="assets/js/login.js"></script>
+</body>
 </html>
