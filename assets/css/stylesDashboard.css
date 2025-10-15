@@ -145,8 +145,7 @@ html, body {
 
 /* --- Tarjeta simple de película --- */
 .movie-card {
-  background: #fff;
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
   cursor: pointer;
   box-shadow: 0 6px 18px rgba(0,0,0,0.06);
@@ -170,16 +169,16 @@ html, body {
 
 .movie-meta {
   padding: 10px;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 8px;
+  text-align: center;
 }
 
 .movie-title {
   font-size: 14px;
   font-weight: 600;
-  color: #111;
+  color: #fff;
   line-height: 1.1;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -189,7 +188,7 @@ html, body {
 
 .movie-year {
   font-size: 12px;
-  color: #8a8f95;
+  color: #1db8ff;
   white-space: nowrap;
 }
 

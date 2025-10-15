@@ -35,9 +35,8 @@
                 </div>
             </header>
 
-            <!-- ============================
-       BARRA DE BÚSQUEDA
-       ============================ -->
+            <!-- ============================ BARRA DE BÚSQUEDA ============================ -->
+
             <div class="search-section" role="search" aria-label="Buscar películas">
                 <label for="search-input" class="sr-only">Encuentra tu película favorita</label>
                 <div class="search-box">
@@ -49,29 +48,20 @@
                 </div>
             </div>
 
-            <!-- ============================
-       MAIN: GRID DE PELÍCULAS (SCROLL)
-       ============================ -->
+            <!-- ============================ MAIN: GRID DE PELÍCULAS (SCROLL) ============================ -->
+
             <main class="main" role="main">
                 <!-- El contenedor con scroll independiente -->
                 <section id="movies-scroll" class="movies-scroll" aria-live="polite">
-                                <!--
+                    <!-- 
                     Aquí el JS debe renderizar las tarjetas dinámicamente leyendo assets/data/movies.json
-                    Ejemplo de una tarjeta (el JS creará todas las necesarias):
-                    <article class="movie-card" data-id="movieId">
-                    <img src="assets/caratulas/ejemplo.jpg" alt="Título película" class="movie-poster">
-                    <div class="movie-meta">
-                        <h2 class="movie-title">The Night Fury</h2>
-                        <span class="movie-year">2025</span>
-                    </div>
-                    </article>
-                -->
+                    Ejemplo de una tarjeta (el JS creará todas las necesarias): -->
+
                 </section>
             </main>
 
-            <!-- ============================
-       FOOTER (FIJO ABAJO) - CATEGORÍAS
-       ============================ -->
+            <!-- ======================= FOOTER (FIJO ABAJO) - CATEGORÍAS ============================ -->
+
             <footer class="footer" role="contentinfo" aria-label="Categorías">
                 <nav class="categories" aria-label="Filtrar por categorías">
                     <button class="category-btn" data-category="all">Todos</button>
@@ -82,6 +72,8 @@
             </footer>
         </div>
     </div>
+
+    <script src="assets/js/app.js"></script>
 </body>
 
 </html>
