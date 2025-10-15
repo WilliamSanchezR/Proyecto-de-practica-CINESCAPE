@@ -21,8 +21,6 @@ body {
 }
 
 .marco-telefono {
-    width: 430px;
-    height: 932px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -32,8 +30,9 @@ body {
 }
 
 .login-container {
-    width: 100%;
-    padding: 36px 28px 48px;
+    width: 430px;
+    height: 932px;
+    padding: 320px 28px 48px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -56,7 +55,6 @@ body {
     object-fit: contain;
     display: block;
     margin: 0 auto 16px;
-    border-radius: 22px;
     background: transparent;
     box-shadow: none;
 }
