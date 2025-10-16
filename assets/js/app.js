@@ -1,4 +1,5 @@
 const contenedor = document.querySelector('.movies-scroll');
+const btnFiltro = document.querySelectorAll('.category-btn');
 
 let peliculas = [];
 let peliculasFiltradas = [];
@@ -13,30 +14,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
             peliculas = data;
 
-            // mostrarPeliculas();
-            // Aqui iran las futuras funciones a realizar 
+            mostrarPeliculas(peliculas);
         })
-    
+
 
         .catch(error => {
             console.error("Error al cargar el JSON:", error);
         })
 });
 
+function mostrarPeliculas(lista) {
+    contenedor.innerHTML = "";
 
-fetch("/assets/data/peliculas.json")
+    lista.forEach(pelicula => {
 
-.then (response => response.json())
+        const item = document.createElement('article');
 
-.then(data =>{
-    console.log("los datos se obtuvieron de manera correcta")
-
-    data.forEach(pelicula => {
-
-    const item = document.createElement('article');
-
-    item.setAttribute('id','movieId');
-    item.setAttribute('class','movie-card');
+        item.setAttribute('id', 'movieId');
+        item.setAttribute('class', 'movie-card');
 
         item.innerHTML = `
             <img src="assets/${pelicula.ruta_caratula}" alt="${pelicula.nombre}" class="movie-poster">
@@ -47,9 +42,19 @@ fetch("/assets/data/peliculas.json")
         `
 
         contenedor.appendChild(item);
-        });
-})
+    });
 
-.catch(error => {
-    console.error("Hubo un error en la obtencion de los datos: ",error);
+};
+
+btnFiltro.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const categoriaSelec = btn.getAttribute('data-category');
+
+        if (categoriaSelec === "todos") {
+            mostrarPeliculas(peliculas);
+        } else {
+            const filtradas = peliculas.filter(p => p.categoria.toLowerCase() === categoriaSelec.toLowerCase());
+            mostrarPeliculas(filtradas);
+        }
+    });
 });
