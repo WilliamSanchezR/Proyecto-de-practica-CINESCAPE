@@ -1,4 +1,5 @@
 const contenedor = document.querySelector('.movies-scroll');
+const btnFiltro = document.querySelectorAll('.category-btn');
 
 let peliculas = [];
 let peliculasFiltradas = [];
@@ -13,73 +14,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
             peliculas = data;
 
-            mostrarPeliculas(); 
+            mostrarPeliculas(peliculas);
         })
-    
+
 
         .catch(error => {
             console.error("Error al cargar el JSON:", error);
         })
 });
 
-function mostrarPeliculas(){
+function mostrarPeliculas(lista) {
     contenedor.innerHTML = "";
 
-    peliculas.forEach(pelicula =>{
-        const item =document.createElement('article');
-        item.classList.add('movie-card');
+    lista.forEach(pelicula => {
 
-        item.innerHTML = `
-            <img src="assets/${pelicula.ruta_caratula}" alt="${pelicula.nombre}" class="movie-poster">
-            <div class="movie-meta">
-                <h2 class="movie-title">${pelicula.nombre}</h2>
-                <span class="movie-year">${pelicula.anio}</span>
-            </div>
-        `;
+        const item = document.createElement('article');
 
-        item.addEventListener('click', () => mostrarDetalle(pelicula));
-        contenedor.appendChild(item);
-
-    })
-}
-function mostrarDetalle(pelicula) {
-    const detalle = document.createElement('section');
-    detalle.classList.add('detalle-pelicula');
-
-    detalle.innerHTML = `
-        <div class="detalle-content">
-            <button class="cerrar-detalle">✖</button>
-            <img src="assets/${pelicula.ruta_caratula}" alt="${pelicula.nombre}" class="detalle-poster">
-            <div class="detalle-info">
-                <h2>${pelicula.nombre}</h2>
-                <p><strong>Año:</strong> ${pelicula.anio}</p>
-                <p><strong>Género:</strong> ${pelicula.genero}</p>
-                <p><strong>Descripción:</strong> ${pelicula.descripcion}</p>
-            </div>
-        </div>
-    `;
-
-    document.body.appendChild(detalle);
-
-    detalle.querySelector('.cerrar-detalle').addEventListener('click', () =>{
-        detalle.remove();
-    });
-
-}
-
-fetch("/assets/data/peliculas.json")
-
-.then (response => response.json())
-
-.then(data =>{
-    console.log("los datos se obtuvieron de manera correcta")
-
-    data.forEach(pelicula => {
-
-    const item = document.createElement('article');
-
-    item.setAttribute('id','movieId');
-    item.setAttribute('class','movie-card');
+        item.setAttribute('id', 'movieId');
+        item.setAttribute('class', 'movie-card');
 
         item.innerHTML = `
             <img src="assets/${pelicula.ruta_caratula}" alt="${pelicula.nombre}" class="movie-poster">
@@ -90,9 +42,19 @@ fetch("/assets/data/peliculas.json")
         `
 
         contenedor.appendChild(item);
-        });
-})
+    });
 
-.catch(error => {
-    console.error("Hubo un error en la obtencion de los datos: ",error);
+};
+
+btnFiltro.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const categoriaSelec = btn.getAttribute('data-category');
+
+        if (categoriaSelec === "todos") {
+            mostrarPeliculas(peliculas);
+        } else {
+            const filtradas = peliculas.filter(p => p.categoria.toLowerCase() === categoriaSelec.toLowerCase());
+            mostrarPeliculas(filtradas);
+        }
+    });
 });
