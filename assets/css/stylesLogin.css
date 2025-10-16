@@ -20,6 +20,8 @@ body {
     background: var(--bg);
 }
 
+
+
 .marco-telefono {
     margin: 0 auto;
     display: flex;
@@ -181,3 +183,43 @@ body {
         border-radius: 18px;
     }
 }
+
+.encabezado {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.peliculas {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    gap: -50px;
+    height: 100%;
+    opacity: 0.1; 
+}
+
+.peliculas img {
+    margin-top: -115px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    position: relative;
+    top: -105px;
+
+}
+
+.login-container {
+    position: relative;
+    z-index: 2;   
+}
+
+
+
