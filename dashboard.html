@@ -93,15 +93,32 @@
     <!-- ============================ MODAL DETALLE PELÍCULA ============================ -->
     <div class="modal" id="movieModal">
         <div class="modal-inner">
-            <button class="modal-close" id="closeModal" aria-label="Cerrar">&times;</button>
-            <div class="modal-poster">
+            <!-- Imagen de fondo con efecto oscurecido -->
+            <div class="modal-bg">
                 <img id="modalPoster" src="" alt="Póster de película">
+                <div class="modal-overlay"></div>
             </div>
-            <div class="modal-info">
-                <h2 class="modal-title" id="modalTitle"></h2>
-                <p class="modal-cat-year" id="modalCatYear"></p>
-                <p class="modal-description" id="modalDescription"></p>
-                <button class="watch-btn">Ver película</button>
+
+            <!-- Contenido del modal -->
+            <div class="modal-content">
+                <!-- Botón cerrar -->
+                <button class="modal-close" id="closeModal" aria-label="Cerrar">
+                    <img src="assets/img/close.png" alt="Botón Cerrar">
+                </button>
+
+                <!-- Info de la película -->
+                <div class="modal-info">
+                    <h2 class="modal-title" id="modalTitle"></h2>
+                    <p class="modal-cat-year" id="modalCatYear"></p>
+                    <p class="modal-description" id="modalDescription"></p>
+
+                    <!-- Reparto -->
+                    <p class="modal-cast"><strong>Reparto:</strong> <span id="modalCast"></span></p>
+
+                    <!-- Botón -->
+                    <button class="watch-btn">Ver Película <img src="assets/img/play-button-arrowhead.png"
+                            alt="Boton de play"></button>
+                </div>
             </div>
         </div>
     </div>

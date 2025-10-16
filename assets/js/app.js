@@ -1,5 +1,14 @@
 const contenedor = document.querySelector('.movies-scroll');
+const contTelefono = document.getElementById('infoTelefono');
 const btnFiltro = document.querySelectorAll('.category-btn');
+const modalImg = document.getElementById('modalPoster');
+const modalTitulo = document.getElementById('modalTitle');
+const modalGeneroAño = document.getElementById('modalCatYear');
+const modalDescripcion = document.getElementById('modalDescription');
+const modalReparto = document.getElementById('modalCast');
+const contModal = document.getElementById('movieModal');
+const closeModal = document.getElementById('closeModal');
+
 
 let peliculas = [];
 let peliculasFiltradas = [];
@@ -26,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function mostrarPeliculas(lista) {
     contenedor.innerHTML = "";
 
-    lista.forEach(pelicula => {
+    lista.forEach((pelicula, index) => {
 
         const item = document.createElement('article');
 
@@ -40,6 +49,10 @@ function mostrarPeliculas(lista) {
                     <span class="movie-year">${pelicula.anio}</span>
                 </div>
         `
+        item.addEventListener('click', () => {
+            indiceActual = index;
+            mostrarDetalle(lista[indiceActual])
+        })
 
         contenedor.appendChild(item);
     });
@@ -58,3 +71,18 @@ btnFiltro.forEach(btn => {
         }
     });
 });
+
+function mostrarDetalle(pelicula) {
+    modalImg.src = `assets/${pelicula.ruta_caratula}`;
+    modalImg.alt = `Póster de ${pelicula.nombre}`;
+    modalTitulo.textContent = pelicula.nombre;
+    modalGeneroAño.textContent = `${pelicula.categoria} · ${pelicula.anio}`;
+    modalDescripcion.textContent = pelicula.sinopsis;
+    modalReparto.textContent = pelicula.reparto;
+
+    contModal.classList.toggle('show');
+}
+
+closeModal.addEventListener('click', () => {
+    contModal.classList.remove('show');
+})
