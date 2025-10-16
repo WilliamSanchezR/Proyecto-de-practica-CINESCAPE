@@ -1,6 +1,6 @@
 /* assets/css/dashboard.css
-   CSS sencillo y convencional para Dashboard dentro de .marco-telefono
-   Mobile-first, pensado para 430 x 932 (iPhone 14 Pro Max)
+  CSS sencillo y convencional para Dashboard dentro de .marco-telefono
+  Mobile-first, pensado para 430 x 932 (iPhone 14 Pro Max)
 */
 
 /* --- Reset minimal --- */
@@ -24,6 +24,7 @@ html, body {
   border-radius: 40px;
   overflow: hidden;
   box-shadow: 0 0 30px rgba(0,0,0,0.6);
+  position: relative; /* importante */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -414,37 +415,74 @@ html, body {
   margin-bottom: 6px;
 }
 
-/* Menú lateral */
+/* --- Botón de menú --- */
+.menu-btn {
+  position: absolute;
+  top: 54px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: right 0.4s ease-out, transform 0.4s ease-out; /* más rápido */
+  z-index: 20;
+}
+
+.menu-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+/* --- Menú lateral --- */
 .menu-lateral {
-  position: fixed;
+  position: absolute;
   top: 0;
-  left: -250px; /* Oculto por defecto */
-  width: 250px;
-  height: 100vh;
-  background-color: #121212;
+  right: 0;
+  height: 100%;
+  width: 210px;
+  background-color: #18181B;
   padding: 20px;
-  box-shadow: 2px 0 10px rgba(0,0,0,0.5);
-  transition: left 0.3s ease;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.5);
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in-out;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  z-index: 10;
 }
 
+/* Estado abierto */
 .menu-lateral.abierto {
-  left: 0; /* Muestra el menú */
+  transform: translateX(0); /* Entra de derecha a izquierda */
 }
 
-/* Título del menú */
+/* Cuando el menú está abierto, mueve el botón */
+.menu-lateral.abierto ~ .menu-btn {
+  right: 218px; /* se mueve a la izquierda */
+  transition-delay: 0.4s;
+}
+
+.menu-btn.mover {
+  right: 218px; /* se mueve a la izquierda */
+  transition-delay: 0.2 s;
+}
+
+/* --- Título del menú --- */
 .menu-lateral h3 {
   color: #00bcd4;
   margin-bottom: 20px;
   font-size: 16px;
+  text-align: right;
+  position: relative;
+  top: 80px;
 }
 
-/* Enlaces del menú */
+/* --- Enlaces del menú --- */
 .menu-principal li {
   list-style: none;
   margin-bottom: 12px;
+  text-align: right;
+  position: relative;
+  top: -140px;
 }
 
 .menu-principal a {
@@ -458,11 +496,14 @@ html, body {
   color: #00bcd4;
 }
 
-/* Parte inferior */
+/* --- Parte inferior --- */
 .menu-inferior {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  text-align: right;
+  position: relative;
+  bottom: 340px;
 }
 
 .menu-inferior a {
