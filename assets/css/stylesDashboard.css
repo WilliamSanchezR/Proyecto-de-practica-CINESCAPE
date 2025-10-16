@@ -292,88 +292,148 @@ html, body {
 
 /* --- MODAL (pantalla completa, sube desde abajo) --- */
 .modal {
-  position: absolute; /* dentro del .contenedor */
-  inset: 0;
-  display: none; /* oculto por defecto */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
   align-items: flex-end;
   justify-content: center;
-  background: rgba(0,0,0,0.45);
-  z-index: 50;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .modal.show {
-  display: flex;
+  pointer-events: all;
+  opacity: 1;
 }
 
 .modal-inner {
   width: 100%;
-  height: 100%;
-  background: #fff;
-  border-top-left-radius: 18px;
-  border-top-right-radius: 18px;
+  max-width: 450px;
+  background: #111;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  overflow: hidden;
   transform: translateY(100%);
-  transition: transform 0.32s ease;
-  overflow-y: auto;
+  transition: transform 0.4s ease;
 }
 
 .modal.show .modal-inner {
   transform: translateY(0);
 }
 
-.modal-close {
-  position: absolute;
-  right: 14px;
-  top: 14px;
-  background: rgba(255,255,255,0.9);
-  border: none;
-  padding: 8px;
-  border-radius: 10px;
-  cursor: pointer;
-  z-index: 60;
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(1030px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-/* modal content */
 .modal-poster {
-  width: 100%;
-  height: 46vh;
-  background: #ddd;
+  position: relative;
+  height: 240px;
   overflow: hidden;
 }
-.modal-poster img {
+
+.modal-bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+.modal-poster::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(top, rgba(0, 0, 0, 0.85), transparent 60%);
+}
+
 .modal-info {
-  padding: 14px;
+  padding: 16px;
+  background: #111;
 }
+
 .modal-title {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
+  color: #fff;
 }
+
 .modal-cat-year {
+  font-size: 14px;
   color: #8a8f95;
-  font-size: 13px;
   margin-bottom: 10px;
+  margin-top: 10px;
+  border-bottom: 2px solid #1db8ff;
 }
+
 .modal-description {
   font-size: 14px;
   line-height: 1.5;
-  color: #333;
-  margin-bottom: 12px;
-}
-.watch-btn {
-  width: 100%;
-  padding: 12px;
-  border-radius: 12px;
-  background: linear-gradient(90deg, #1db8ff, #9c5bff);
-  color: #fff;
-  border: none;
-  font-weight: 700;
-  cursor: pointer;
+  color: #ccc;
+  margin-bottom: 24px;
 }
 
+.modal-cast {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 20px;
+}
+
+.modal-cast strong {
+  color: #fff;
+}
+
+.watch-btn img {
+  width: 10%;
+}
+
+.watch-btn {
+  width: 50%;
+  padding: 10px;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #1db8ff, #9c5bff);
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.watch-btn:hover {
+  background: linear-gradient(90deg, #19a9e6, #8447ff);
+}
+
+.modal-close{
+  background: none;
+  border: none;
+}
+
+
+.modal-close img {
+  position: absolute;
+  top: 18px;
+  right: 16px;
+  background: #000;
+  border: none;
+  width: 6%;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
 /* --- SIDE MENU derecho (slide in) --- */
 .side-menu {
   position: absolute;
