@@ -39,8 +39,8 @@
                 <h3 class="search-title">Encuentra tu película favorita</h3>
 
                 <div class="search-box">
-                    <input id="search-input" class="search-input" type="search"
-                        placeholder="Buscar..." autocomplete="off" />
+                    <input id="search-input" class="search-input" type="search" placeholder="Buscar..."
+                        autocomplete="off" />
                     <button id="search-btn" class="icon-btn search-btn" aria-label="Buscar">
                         <img src="assets/img/search.png" alt="Foto Buscador">
                     </button>
@@ -52,7 +52,7 @@
             <main class="main" role="main">
                 <!-- El contenedor con scroll independiente -->
                 <section id="movies-scroll" class="movies-scroll" aria-live="polite">
-                    <!-- 
+                    <!--
                     Aquí el JS debe renderizar las tarjetas dinámicamente leyendo assets/data/movies.json
                     Ejemplo de una tarjeta (el JS creará todas las necesarias): -->
 
@@ -70,6 +70,23 @@
             </footer>
         </div>
     </div>
+    
+    <!-- ============================ MODAL DETALLE PELÍCULA ============================ -->
+    <div class="modal" id="movieModal">
+        <div class="modal-inner">
+            <button class="modal-close" id="closeModal" aria-label="Cerrar">&times;</button>
+            <div class="modal-poster">
+                <img id="modalPoster" src="" alt="Póster de película">
+            </div>
+            <div class="modal-info">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <p class="modal-cat-year" id="modalCatYear"></p>
+                <p class="modal-description" id="modalDescription"></p>
+                <button class="watch-btn">Ver película</button>
+            </div>
+        </div>
+    </div>
+
 
     <script src="assets/js/app.js"></script>
 </body>
