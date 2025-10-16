@@ -6,7 +6,7 @@ let peliculasFiltradas = [];
 let indiceActual = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetch("/assets/data/peliculas.json")
+    fetch("assets/data/peliculas.json")
 
         .then(response => response.json())
 
