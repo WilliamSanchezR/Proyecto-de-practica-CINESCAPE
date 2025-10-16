@@ -1,12 +1,15 @@
 const contenedor = document.querySelector('.movies-scroll');
 const btnFiltro = document.querySelectorAll('.category-btn');
+const searchInput = document.querySelector('.search-input');
+const searchBtn = document.getElementById('search-btn');
 
 let peliculas = [];
 let peliculasFiltradas = [];
 let indiceActual = 0;
+let categoriaActual = "todos";
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetch("/assets/data/peliculas.json")
+    fetch("assets/data/peliculas.json")
 
         .then(response => response.json())
 
@@ -58,3 +61,28 @@ btnFiltro.forEach(btn => {
         }
     });
 });
+
+// Al hacer clic en el botón
+searchBtn.addEventListener('click', () => {
+    filtrarPeliculas(searchInput.value.trim());
+});
+
+// Al presionar Enter en el input
+searchInput.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+        filtrarPeliculas(searchInput.value.trim());
+      }
+});
+
+function filtrarPeliculas(termino) {
+    if (!termino) {
+        mostrarPeliculas(peliculas); // Si está vacío, muestra todo
+        return;
+    }
+
+    const resultado = peliculas.filter(pelicula =>
+        pelicula.nombre.toLowerCase().includes(termino.toLowerCase())
+    );
+
+    mostrarPeliculas(resultado);
+}
