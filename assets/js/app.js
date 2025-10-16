@@ -39,7 +39,7 @@ fetch("/assets/data/peliculas.json")
     item.setAttribute('class','movie-card');
 
         item.innerHTML = `
-            <img src="assets/${pelicula.ruta_caratula}" alt="${pelicula.nombre}" class="movie-poster">
+            <img src="assets/${pelicula.ruta_caratula}" alt="${pelicula.nombre}" class="movie-poster" value="${pelicula.id}">
                 <div class="movie-meta">
                     <h2 class="movie-title">${pelicula.nombre}</h2>
                     <span class="movie-year">${pelicula.anio}</span>
