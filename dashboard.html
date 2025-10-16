@@ -52,7 +52,7 @@
             <main class="main" role="main">
                 <!-- El contenedor con scroll independiente -->
                 <section id="movies-scroll" class="movies-scroll" aria-live="polite">
-                    <!-- 
+                    <!--
                     Aquí el JS debe renderizar las tarjetas dinámicamente leyendo assets/data/movies.json
                     Ejemplo de una tarjeta (el JS creará todas las necesarias): -->
 
@@ -63,13 +63,30 @@
 
             <footer class="footer" role="contentinfo" aria-label="Categorías">
                 <nav class="categories" aria-label="Filtrar por categorías">
-                    <button class="category-btn" data-category="accion">Acción</button>
-                    <button class="category-btn" data-category="romance">Romance</button>
-                    <button class="category-btn" data-category="terror">Terror</button>
+                    <button class="category-btn" data-category="Acción">Acción</button>
+                    <button class="category-btn" data-category="Romance">Romance</button>
+                    <button class="category-btn" data-category="Terror">Terror</button>
                 </nav>
             </footer>
         </div>
     </div>
+    
+    <!-- ============================ MODAL DETALLE PELÍCULA ============================ -->
+    <div class="modal" id="movieModal">
+        <div class="modal-inner">
+            <button class="modal-close" id="closeModal" aria-label="Cerrar">&times;</button>
+            <div class="modal-poster">
+                <img id="modalPoster" src="" alt="Póster de película">
+            </div>
+            <div class="modal-info">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <p class="modal-cat-year" id="modalCatYear"></p>
+                <p class="modal-description" id="modalDescription"></p>
+                <button class="watch-btn">Ver película</button>
+            </div>
+        </div>
+    </div>
+
 
     <!-- ======================= MENU LATERAL ============================ -->
 
